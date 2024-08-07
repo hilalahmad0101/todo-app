@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/4d3f81f2-3ab8-4b46-9c13-5a91b7681707/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/portalar",
-    "appService.deploySubpath": "build"
-}
