@@ -1,3 +1,4 @@
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { ColorModeContext, useMode } from ".././theme/theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";

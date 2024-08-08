@@ -1,3 +1,4 @@
+import React from 'react';
 import CustomRoute from "./CustomRoute";
 import { BrowserRouter } from "react-router-dom";
 import { useMode } from "./theme/theme";

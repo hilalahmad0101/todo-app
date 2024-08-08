@@ -1,3 +1,4 @@
+import React from "react";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -8,17 +9,13 @@ import NightsStayIcon from "@mui/icons-material/NightsStay";
 import { Box, IconButton, InputBase, styled, useTheme } from "@mui/material";
 import { ColorModeContext, tokens } from "../../../theme/theme";
 import { useNavigate } from "react-router-dom";
-
 import { useContext, useState } from "react";
-import { SettingsEthernetOutlined } from "@mui/icons-material";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Cookies from "js-cookie";
 import { apiBase } from "../../../config";
 import axios from "axios";
-
-ColorModeContext;
 
 function Topbar() {
   const navigate = useNavigate();
@@ -31,12 +28,15 @@ function Topbar() {
   const user = JSON.parse(userString);
   const uid = user.id;
   console.log("uid", uid);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const handleLogout = async () => {
     const confirmLogout = window.confirm("Are you sure you want to logout?");
     if (confirmLogout) {
@@ -58,10 +58,8 @@ function Topbar() {
       };
 
       try {
-        let response = await axios.request(reqOptions); 
-        // Cookies.remove("sessionToken");
+        let response = await axios.request(reqOptions);
         alert("Logged out successfully");
-        // localStorage.removeItem("user");
         navigate("/");
         window.location.reload();
         console.log(response.data);
@@ -70,11 +68,12 @@ function Topbar() {
       }
     }
   };
+
   return (
     <Box display="flex" justifyContent="flex-end">
       <Box display="flex">
         <IconButton type="button" onClick={colorMode.toggleColorMode}>
-          {theme.colorMode == "dark" ? (
+          {theme.colorMode === "dark" ? (
             <LightModeOutlinedIcon />
           ) : (
             <LightModeOutlinedIcon />
