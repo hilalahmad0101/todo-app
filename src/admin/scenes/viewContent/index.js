@@ -17,7 +17,7 @@
 // import StatBox from "../../components/StatBox";
 // import { tokens } from "../../../theme/theme";
 // import logo from "../../../assets/autoDisk.jpg";
-// import { apiBase } from "../../../../config";
+// import { apiBase } from "../../config";
 // import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 // import axios from "axios";
 // function ViewContent() {
@@ -204,7 +204,7 @@
 // import StatBox from "../../components/StatBox";
 // import { tokens } from "../../../theme/theme";
 // import logo from "../../../assets/autoDisk.jpg";
-// import { apiBase } from "../../../../config";
+// import { apiBase } from "../../config";
 // import ShareSharpIcon from '@mui/icons-material/ShareSharp';
 // import axios from "axios";
 
@@ -392,7 +392,7 @@ import {
 import { tokens } from "../../../theme/theme";
 import ShareSharpIcon from "@mui/icons-material/ShareSharp";
 import axios from "axios";
-import { apiBase } from "../../../../config";
+import { apiBase } from "../../../config";
 import Virtualize from "../../components/AutoComplete";
 
 function ViewContent() {

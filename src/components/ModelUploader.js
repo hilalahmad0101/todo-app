@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { tokens } from "../theme/theme";
-import { apiBase } from "../../config";
+import { apiBase } from "../config";
 import axios from "axios";
 
 const ModelUploader = ({

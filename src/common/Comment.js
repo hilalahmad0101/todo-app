@@ -12,7 +12,7 @@ import {
   styled,
 } from "@mui/material";
 import axios from "axios";
-import { apiBase, userToken } from "../../config";
+import { apiBase, userToken } from "../config";
 
 function CommentBox({ imgCard, urn, onSubmit }) {
   const [comment, setComment] = useState("");

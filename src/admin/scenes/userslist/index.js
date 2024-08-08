@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../../theme/theme";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
-import { apiBase, userToken } from "../../../../config";
+import { apiBase, userToken } from "../../../config";
 import axios from "axios";
 
 const UsersList = () => {

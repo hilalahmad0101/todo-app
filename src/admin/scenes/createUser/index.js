@@ -14,7 +14,7 @@ import {
 import Header from "../../components/Header";
 import { tokens } from "../../../theme/theme";
 import axios from "axios"; // Import axios
-import { apiBase } from "../../../../config";
+import { apiBase } from "../../../config";
 import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({

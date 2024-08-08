@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { apiBase, userToken } from "../../config";
+import { apiBase, userToken } from "../config";
 import Box from "@mui/material/Box";
 import CommentBox from "../common/Comment";
 import { Button, CircularProgress } from "@mui/material";

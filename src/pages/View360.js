@@ -6,7 +6,7 @@ import { useScreenshot } from "use-react-screenshot";
 import CommentBox from "../common/Comment";
 import EditImage from "../common/EditImage";
 import axios from "axios";
-import { apiBase, userToken } from "../../config";
+import { apiBase, userToken } from "../config";
 import DisplayComment from "../common/DisplayComment";
 import Model360Selector from "../components/Model360Selector";
 import { useQuery } from "@tanstack/react-query";

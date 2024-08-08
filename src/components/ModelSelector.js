@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from "react";
-// import { apiBase } from "../../config";
+// import { apiBase } from "../config";
 
 // const ModelSelector = ({ onSelect }) => {
 //   const [models, setModels] = useState([]);
@@ -63,7 +63,7 @@
 // export default ModelSelector;
 
 import React, { useEffect, useState } from "react";
-import { apiBase } from "../../config";
+import { apiBase } from "../config";
 
 const ModelSelector = ({ onSelect }) => {
   const [models, setModels] = useState([]);

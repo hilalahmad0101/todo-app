@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import { apiBase, userToken } from "../../config";
+import { apiBase, userToken } from "../config";
 import moment from "moment";
 
 function DisplayComment({

@@ -20,7 +20,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import CustomInput from "../common/TextFeild";
-import { apiBase } from "../../config";
+import { apiBase } from "../config";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 

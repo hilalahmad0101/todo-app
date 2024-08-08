@@ -15,7 +15,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Cookies from "js-cookie";
-import { apiBase } from "../../../../config";
+import { apiBase } from "../../../config";
 import axios from "axios";
 
 ColorModeContext;

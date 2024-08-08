@@ -7,7 +7,7 @@ import Forward30Icon from "@mui/icons-material/Forward30";
 import ThreeDRotationIcon from "@mui/icons-material/ThreeDRotation";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { apiBase } from "../../config";
+import { apiBase } from "../config";
 import LogoutBtn from "../common/LogoutBtn";
 // Import more icons as needed
 
