@@ -1,79 +1,62 @@
-{
-  "name": "aa",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@aps_sdk/authentication": "^0.1.0-beta.1",
-    "@aps_sdk/autodesk-sdkmanager": "^0.0.7-beta.1",
-    "@aps_sdk/model-derivative": "^0.1.0-beta.1",
-    "@aps_sdk/oss": "^0.1.0-beta.1",
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
-    "@hookform/resolvers": "^3.9.0",
-    "@mui/icons-material": "^5.16.5",
-    "@mui/material": "^5.16.5",
-    "@mui/x-data-grid": "^7.12.0",
-    "@nivo/geo": "^0.87.0",
-    "@tanstack/react-query": "^5.51.21",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/forge-viewer": "^7.89.1",
-    "axios": "^1.7.2",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "express-formidable": "^1.2.0",
-    "formik": "^2.4.6",
-    "html2canvas": "^1.4.1",
-    "js-cookie": "^3.0.5",
-    "jwt-decode": "^4.0.0",
-    "konva": "^9.3.14",
-    "moment": "^2.30.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-hook-form": "^7.52.1",
-    "react-konva": "^18.2.10",
-    "react-pro-sidebar": "^1.1.0",
-    "react-router-dom": "^6.25.1",
-    "react-scripts": "^3.0.1",
-    "react-window": "^1.8.10",
-    "styled-components": "^6.1.12",
-    "use-react-screenshot": "^4.0.0",
-    "web-vitals": "^2.1.4",
-    "yup": "^1.4.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --passWithNoTests",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.21.0",
-    "@babel/core": "^7.25.3",
-    "@babel/preset-env": "^7.25.3",
-    "babel-loader": "^8.2.2",
-    "webpack": "^5.72.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4"
-  }
-}
+name: Build and deploy Node.js app to Azure Web App - portalar
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Set environment variable for OpenSSL
+        run: echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV
+
+      - name: npm install, build, and test --passWithNoTests
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present 
+          
+      - name: Zip artifact for deployment
+        run: zip release.zip ./* -r
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: node-app
+          path: release.zip
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: node-app
+
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
+      
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'portalar'
+          slot-name: 'Production'
+          package: .
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_248A27D1D08B4DDFA4EA58AFF6EDAC75 }}
