@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useRef, useState } from "react";
 import { apiBase, userToken } from "../config";
 import Box from "@mui/material/Box";
@@ -7,7 +9,7 @@ import axios from "axios";
 import { useScreenshot } from "use-react-screenshot";
 import EditImage from "../common/EditImage";
 import DisplayComment from "../common/DisplayComment";
-
+import * as Autodesk from "@types/forge-viewer";
 const Viewer = ({ urn }) => {
   const viewerRef = useRef(null);
   const [viewer, setViewer] = useState(null);
