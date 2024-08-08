@@ -25,7 +25,15 @@
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
     "konva": "^9.3.14",
-    "moment": "^2.30.1"
+    "moment": "^2.30.1",
+    "react-hook-form": "^7.52.1",
+    "react-konva": "^18.2.10",
+    "react-pro-sidebar": "^1.1.0",
+    "react-router-dom": "^6.25.1",
+    "react-window": "^1.8.10",
+    "styled-components": "^6.1.12",
+    "use-react-screenshot": "^4.0.0",
+    "yup": "^1.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
