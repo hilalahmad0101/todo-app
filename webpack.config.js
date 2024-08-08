@@ -21,6 +21,10 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.css$/i,  // New rule to handle .css files
+        use: ['style-loader', 'css-loader'],  // Use style-loader and css-loader
       }
     ]
   },
