@@ -67,6 +67,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/preset-env": "^7.25.3",
     "@types/forge-viewer": "^7.89.1"
   }
 }

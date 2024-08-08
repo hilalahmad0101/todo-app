@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ModelSelector from "../components/ModelSelector";
-import Viewer from "../components/Viewer";
+// import Viewer from "../components/Viewer";
 import Notification from "../components/Notification";
 import "./main.css";
 import { Box, Button } from "@mui/material";
@@ -61,7 +61,7 @@ const ForgeViewer = () => {
         </Box>
       </Box>
       <Box sx={{ height: "100vh" }}>
-        <Viewer urn={urn} />
+        {/* <Viewer urn={urn} /> */}
       </Box>
     </>
   );

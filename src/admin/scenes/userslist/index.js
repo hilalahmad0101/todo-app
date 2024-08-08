@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, useTheme, Typography } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+// import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../../theme/theme";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
@@ -90,7 +90,7 @@ const UsersList = () => {
     <Box m="20px">
       <Header title="All USER" subtitle="Users List With Their Assigned Role" />
 
-      <Box
+      {/* <Box
         m="40px 0 0 0"
         height="75vh"
         sx={{
@@ -127,7 +127,7 @@ const UsersList = () => {
           pageSize={10}
           rowsPerPageOptions={[5, 10, 20]}
         />
-      </Box>
+      </Box> */}
     </Box>
   );
 };
