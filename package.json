@@ -15,7 +15,17 @@
     "@hookform/resolvers": "^3.9.0",
     "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.16.5",
-    "@mui/x-data-grid": "^7.12.0"
+    "@mui/x-data-grid": "^7.12.0",
+    "@nivo/geo": "^0.87.0",
+    "@tanstack/react-query": "^5.51.21",
+    "@types/forge-viewer": "^7.89.1",
+    "axios": "^1.7.2",
+    "formik": "^2.4.6",
+    "html2canvas": "^1.4.1",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^4.0.0",
+    "konva": "^9.3.14",
+    "moment": "^2.30.1"
   },
   "scripts": {
     "start": "react-scripts start",
